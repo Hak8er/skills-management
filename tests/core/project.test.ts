@@ -72,6 +72,21 @@ describe('ProjectDetector', () => {
     });
   });
 
+  it('should detect agent project', () => {
+    vi.mocked(fs.existsSync).mockImplementation((p) => {
+      return p === path.join(mockCwd, '.agent');
+    });
+
+    const detector = new ProjectDetector(mockCwd);
+    const info = detector.detect();
+
+    expect(info).toEqual({
+      type: 'agent',
+      root: mockCwd,
+      skillDir: path.join(mockCwd, '.agent', 'skills')
+    });
+  });
+
   it('should return unknown if no marker found', () => {
     vi.mocked(fs.existsSync).mockReturnValue(false);
 

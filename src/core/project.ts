@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import path from 'path';
 
-export type ProjectType = 'opencode' | 'cursor' | 'gemini' | 'antigravity' | 'claude' | 'github' | 'unknown';
+export type ProjectType = 'opencode' | 'cursor' | 'gemini' | 'antigravity' | 'claude' | 'agent' | 'github' | 'unknown';
 
 export interface ProjectInfo {
   type: ProjectType;
@@ -18,6 +18,7 @@ export class ProjectDetector {
     { dir: '.gemini', type: 'gemini' },
     { dir: '.antigravity', type: 'antigravity' },
     { dir: '.claude', type: 'claude' },
+    { dir: '.agent', type: 'agent' },
     { dir: '.github', type: 'github' }
   ];
 
